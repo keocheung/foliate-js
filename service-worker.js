@@ -1,7 +1,7 @@
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('my-app-cache').then((cache) => {
-      return cache.addAll(['/', '/reader.html', '/reader.js']);
+      return cache.addAll(['./', './reader.html', './reader.js']);
     })
   );
 });
