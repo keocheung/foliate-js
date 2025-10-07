@@ -24,6 +24,12 @@ const getCSS = ({ spacing, justify, hyphenate }) => `
             color: lightblue;
         }
     }
+    html {
+        font-family: 'serif';
+    }
+    html:lang(zh) {
+        font-family: 'Noto Serif SC', 'Noto Serif CJK SC', 'serif';
+    }
     p, li, blockquote, dd {
         line-height: ${spacing};
         text-align: ${justify ? 'justify' : 'start'};
@@ -77,7 +83,7 @@ class Reader {
     style = {
         spacing: 1.4,
         justify: true,
-        hyphenate: true,
+        hyphenate: true
     }
     annotations = new Map()
     annotationsByValue = new Map()
