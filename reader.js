@@ -3,6 +3,16 @@ import { createTOCView } from './ui/tree.js'
 import { createMenu } from './ui/menu.js'
 import { Overlayer } from './overlayer.js'
 
+if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
+    window.launchQueue.setConsumer(async (launchParams) => {
+        if (!launchParams.files.length) return;
+        for (const fileHandle of launchParams.files) {
+            const file = await fileHandle.getFile();
+            open(file).catch(e => console.error(e));
+        }
+    });
+}
+
 const getCSS = ({ spacing, justify, hyphenate }) => `
     @namespace epub "http://www.idpf.org/2007/ops";
     html {
