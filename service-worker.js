@@ -1,6 +1,7 @@
+const CACHE_NAME = "keo-foliate-20251010.1";
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open('my-app-cache').then((cache) => {
+    caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(['./', './reader.html', './reader.js']);
     })
   );
@@ -11,5 +12,13 @@ self.addEventListener('fetch', (event) => {
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
+  );
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+    )
   );
 });

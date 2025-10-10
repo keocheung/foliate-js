@@ -3,6 +3,10 @@ import { createTOCView } from './ui/tree.js'
 import { createMenu } from './ui/menu.js'
 import { Overlayer } from './overlayer.js'
 
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('./service-worker.js');
+}
+
 if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
     window.launchQueue.setConsumer(async (launchParams) => {
         if (!launchParams.files.length) return;
