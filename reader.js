@@ -4,7 +4,7 @@ import { createMenu } from './ui/menu.js'
 import { Overlayer } from './overlayer.js'
 
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('./service-worker.js');
+  navigator.serviceWorker.register('./sw.js');
 }
 
 if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
