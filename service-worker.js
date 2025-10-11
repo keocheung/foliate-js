@@ -1,4 +1,4 @@
-const CACHE_NAME = "keo-foliate-20251010.1";
+const CACHE_NAME = "keo-foliate-20251012.1";
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
