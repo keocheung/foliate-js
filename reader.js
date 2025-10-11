@@ -31,7 +31,13 @@ const getCSS = ({ spacing, justify, hyphenate }) => `
     html {
         font-family: 'serif';
     }
-    html:lang(zh) {
+    html:lang(zh-Hant), html:lang(zh-HK), html:lang(zh-Hant-HK) {
+        font-family: 'Noto Serif HK', 'Noto Serif CJK HK', 'serif';
+    }
+    html:lang(zh-TW), html:lang(zh-Hant-TW) {
+        font-family: 'Noto Serif TC', 'Noto Serif CJK TC', 'serif';
+    }
+    html:lang(zh-Hans), html:lang(zh-CN), html:lang(zh-SG), html:lang(zh) {
         font-family: 'Noto Serif SC', 'Noto Serif CJK SC', 'serif';
     }
     p, li, blockquote, dd {
